@@ -8,10 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Select an Option v1.1</h1>
+        <h1>Select an Option v1.2</h1>
         
-        <!-- Modified form tag to prevent reloading -->
-        <form action="http://192.168.0.136:5000/submit" method="post">
+        <!-- Removed action attribute since we're handling submission via AJAX -->
+        <form method="post">
             <label for="option1">
                 <input type="checkbox" id="option1" name="option1"> Option 1
             </label>
@@ -34,8 +34,6 @@
         </form>
     </div>
 
-</body>
-</html>
     <!-- Placeholder for the response message -->
     <div id="responseMessage"></div>
 
@@ -62,3 +60,5 @@
         // Attach the submitForm function to the form's submit event
         document.querySelector('form').addEventListener('submit', submitForm);
     </script>
+</body>
+</html>
