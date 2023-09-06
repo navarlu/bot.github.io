@@ -33,5 +33,31 @@
             <button type="submit">Send</button>
         </form>
     </div>
+    <!-- Placeholder for the response message -->
+<div id="responseMessage"></div>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        // Gather form data
+        const formData = new FormData(document.querySelector('form'));
+
+        // Send data to the server using AJAX
+        fetch('http://192.168.0.136:5000/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Update the webpage with the response message and timestamp
+            const timestamp = new Date().toLocaleString();
+            document.getElementById('responseMessage').textContent = data + " at " + timestamp;
+        });
+    }
+
+    // Attach the submitForm function to the form's submit event
+    document.querySelector('form').addEventListener('submit', submitForm);
+</script>
 </body>
 </html>
